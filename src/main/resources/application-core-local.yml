@@ -1,0 +1,25 @@
+spring:
+  config:
+    activate:
+      on-profile: local
+
+management:
+  metrics:
+    export:
+      npot:
+        enabled: false
+  endpoint:
+    chaosmonkey:
+      enabled: true
+
+chaos:
+  monkey:
+    enabled: false
+    watcher:
+      service: true
+    assaults:
+      level: 10
+      exceptionsActive: true
+      latencyActive: false
+      watchedCustomServices:
+        - com.toy.chaos.AssaultInjectionService.assaultAllWebClient

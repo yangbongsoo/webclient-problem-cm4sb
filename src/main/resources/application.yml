@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: webclient-problem-demo
+  profiles:
+    active: local, chaos-monkey
+  config:
+    import: |-
+      classpath:/application-core.yml
