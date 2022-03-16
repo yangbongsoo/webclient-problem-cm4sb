@@ -1,7 +1,0 @@
-spring:
-  config:
-    import: |-
-      classpath:/application-core-local.yml
-
-warmup:
-  enabled: true

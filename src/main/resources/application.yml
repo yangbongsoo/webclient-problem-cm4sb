@@ -3,6 +3,27 @@ spring:
     name: webclient-problem-demo
   profiles:
     active: local, chaos-monkey
-  config:
-    import: |-
-      classpath:/application-core.yml
+
+management:
+  metrics:
+    export:
+      npot:
+        enabled: false
+  endpoint:
+    chaosmonkey:
+      enabled: true
+
+chaos:
+  monkey:
+    enabled: false
+    watcher:
+      service: true
+    assaults:
+      level: 10
+      exceptionsActive: true
+      latencyActive: false
+      watchedCustomServices:
+        - com.toy.chaos.AssaultInjectionService.assaultAllWebClient
+
+warmup:
+  enabled: true

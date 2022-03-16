@@ -14,7 +14,7 @@ public class ProblemComponent implements InitializingBean {
 	// TODO: problem
 	@Override
 	public void afterPropertiesSet() {
-		System.out.println(Thread.currentThread().getName() +" : Targets afterPropertiesSet");
+		System.out.println("ProblemComponent : Targets afterPropertiesSet start");
 		try {
 			callTarget();
 		} catch (Exception e) {
