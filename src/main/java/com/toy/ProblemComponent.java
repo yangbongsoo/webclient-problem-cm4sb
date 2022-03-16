@@ -16,14 +16,10 @@ public class ProblemComponent implements InitializingBean {
 	public void afterPropertiesSet() {
 		System.out.println("ProblemComponent : Targets afterPropertiesSet start");
 		try {
-			callTarget();
+			String responseBody = apiClient.call().block();
+			System.out.println(responseBody);
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
-	}
-
-	private void callTarget() {
-		String responseBody = apiClient.call().block();
-		System.out.println(responseBody);
 	}
 }
